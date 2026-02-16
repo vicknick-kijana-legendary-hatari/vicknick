@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://www.vicknickvideopool.com; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-src https://www.vicknickvideopool.com;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vicknick Video Pool</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo-dot"></div>
+          <div>
+            <h1>Vicknick Video Pool</h1>
+            <p>Global DJ Video Pool Desktop</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="reloadBtn">Reload</button>
+          <button id="downloadsBtn">Downloads</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="webview-section">
+          <webview
+            id="siteView"
+            src="https://www.vicknickvideopool.com"
+            partition="persist:vicknick-videopool"
+            allowpopups
+            webpreferences="contextIsolation=yes,sandbox=yes,nodeIntegration=no"
+          ></webview>
+        </section>
+
+        <aside id="downloadsPanel" class="downloads-panel hidden">
+          <div class="panel-header">
+            <h2>Download Manager</h2>
+            <span id="downloadsCount">0 active</span>
+          </div>
+          <div id="downloadsList" class="downloads-list"></div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
