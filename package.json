@@ -1,0 +1,72 @@
+{
+  "name": "vicknick-video-pool-desktop",
+  "version": "1.0.0",
+  "description": "Premium desktop application for Vicknick Video Pool",
+  "main": "src/main/index.js",
+  "author": "Vicknick Video Pool",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "cross-env NODE_ENV=development electron .",
+    "lint": "eslint .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win nsis",
+    "build:mac": "electron-builder --mac dmg"
+  },
+  "build": {
+    "appId": "com.vicknick.videopool.desktop",
+    "productName": "Vicknick Video Pool",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.music",
+      "icon": "build/icons/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icons/icon.ico",
+      "publisherName": "Vicknick Video Pool"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Vicknick Video Pool"
+    }
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^36.3.2",
+    "electron-builder": "^24.13.3",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.2"
+  }
+}
